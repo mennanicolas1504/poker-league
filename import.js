@@ -44,6 +44,15 @@ document.getElementById("btn-importar").addEventListener("click", async () => {
       log("Premiação já configurada, não mexi.");
     }
 
+    if (seed.convidados && seed.convidados.length) {
+      const convidadosRef = doc(db, "config", "convidados");
+      const convidadosSnap = await getDoc(convidadosRef);
+      const existentes = convidadosSnap.exists() ? convidadosSnap.data().nomes || [] : [];
+      const nomes = Array.from(new Set([...existentes, ...seed.convidados]));
+      await setDoc(convidadosRef, { nomes });
+      log(`Convidados (fora do ranking): ${nomes.join(", ")}.`);
+    }
+
     log(`\nPronto! ${criadas} etapas importadas, ${puladas} já existiam.`);
     log("Pode voltar para o index.html — a classificação já vai estar lá.");
   } catch (err) {

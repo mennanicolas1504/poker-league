@@ -1,5 +1,6 @@
 {
   "premiacao": 765,
+  "convidados": ["Tenório", "Gustavo", "Murilo", "Gu", "Matheus"],
   "etapas": [
     {
       "date": "2026-01-08",
@@ -7,6 +8,10 @@
         {
           "position": 1,
           "name": "Jeype"
+        },
+        {
+          "position": 2,
+          "name": "Tenório"
         },
         {
           "position": 3,
@@ -27,6 +32,10 @@
         {
           "position": 7,
           "name": "Arthur"
+        },
+        {
+          "position": 8,
+          "name": "Gustavo"
         }
       ]
     },
@@ -40,6 +49,10 @@
         {
           "position": 2,
           "name": "Nico"
+        },
+        {
+          "position": 3,
+          "name": "Murilo"
         },
         {
           "position": 4,
@@ -459,6 +472,10 @@
         {
           "position": 7,
           "name": "Coelho"
+        },
+        {
+          "position": 8,
+          "name": "Gu"
         }
       ]
     },
@@ -546,6 +563,10 @@
         {
           "position": 3,
           "name": "Vitor"
+        },
+        {
+          "position": 4,
+          "name": "Matheus"
         },
         {
           "position": 5,
