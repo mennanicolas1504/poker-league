@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=2" />
+<link rel="stylesheet" href="style.css?v=3" />
 
 <!-- Ícone do app (usado ao adicionar à tela de início no celular) -->
 <link rel="manifest" href="manifest.json" />
@@ -22,10 +22,19 @@
 
 <!-- Introzinha ao abrir o site -->
 <div id="splash" class="splash" aria-hidden="true">
-  <img src="icons/icon-512.png" alt="" class="splash-chip" />
-  <h1 class="splash-title">Poker League</h1>
-  <p class="splash-sub">Championship</p>
-  <div class="splash-suits"><span>♠</span><span>♥</span><span>♦</span><span>♣</span></div>
+  <div class="splash-frame">
+    <div class="splash-frame-head">
+      <span class="splash-eyebrow">Poker League</span>
+      <img src="icons/icon-512.png" alt="" class="splash-avatar" />
+    </div>
+    <div class="splash-cards">
+      <span class="splash-card splash-card-back">A<em>♠</em></span>
+      <span class="splash-card splash-card-front">A<em>♥</em></span>
+    </div>
+    <h1 class="splash-title">POKER<span>ZENHA</span></h1>
+    <p class="splash-sub">Championship</p>
+    <div class="splash-suits"><span>♠</span><span>♥</span><span>♦</span><span>♣</span></div>
+  </div>
 </div>
 
 <div class="topbar">
@@ -197,6 +206,6 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script type="module" src="app.js?v=2"></script>
+<script type="module" src="app.js?v=3"></script>
 </body>
 </html>
