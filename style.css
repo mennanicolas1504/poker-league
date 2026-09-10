@@ -11,6 +11,9 @@
   --bronze: #d98a4d;
   --green: #3ecf8e;
   --red: #ef5a5a;
+  --felt-1: #123526;
+  --felt-2: #0a2318;
+  --felt-3: #05130c;
   --radius: 16px;
   --radius-sm: 10px;
   font-family: "Manrope", system-ui, -apple-system, sans-serif;
@@ -21,7 +24,14 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at 20% -10%, #1c2029 0%, var(--bg) 45%) fixed;
+  /* Mesa de poker: feltro verde escuro com "spot light" no topo e uma
+     trama diagonal bem sutil imitando o tecido, mais escuro nas bordas. */
+  background:
+    radial-gradient(ellipse 1200px 700px at 50% -120px, rgba(255, 255, 255, 0.05), transparent 65%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 26px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 26px),
+    radial-gradient(circle at 50% 25%, var(--felt-1) 0%, var(--felt-2) 45%, var(--felt-3) 100%);
+  background-attachment: fixed;
   color: var(--text);
   min-height: 100%;
 }

@@ -40,6 +40,10 @@ const CICLO_DIAS = 14; // joga a cada 2 semanas
 // (independe do VALOR_POR_BUYIN da premiação geral, que é outra conta).
 const VALOR_BUYIN_PREMIACAO_DIARIA = 15;
 
+// Ano da temporada mostrado no site. Calculado sozinho a partir da data de
+// hoje, então não precisa trocar nada na virada do ano.
+const TEMPORADA_ANO = new Date().getFullYear();
+
 // ============================================================================
 // ESTADO EM MEMÓRIA
 // ============================================================================
@@ -316,12 +320,12 @@ function renderSubtitle() {
   if (!el) return;
   const total = etapasMap.size;
   if (total === 0) {
-    el.textContent = "Temporada 2026 • nenhuma etapa lançada ainda";
+    el.textContent = `Temporada ${TEMPORADA_ANO} • nenhuma etapa lançada ainda`;
     return;
   }
   const ultimaData = Array.from(etapasMap.keys()).sort().pop();
   const [, mm, dd] = ultimaData.split("-");
-  el.textContent = `Temporada 2026 • ${total} etapa${total === 1 ? "" : "s"} • Última atualização ${dd}/${mm}`;
+  el.textContent = `Temporada ${TEMPORADA_ANO} • ${total} etapa${total === 1 ? "" : "s"} • Última atualização ${dd}/${mm}`;
 }
 
 // ============================================================================
@@ -761,6 +765,7 @@ $("#btn-nova-etapa").addEventListener("click", () => abrirLancamento());
 renderPointsTable();
 carregarPremiacao();
 renderProximaEtapa();
+if ($("#temporada-ano")) $("#temporada-ano").textContent = TEMPORADA_ANO;
 
 onSnapshot(
   collection(db, "etapas"),
