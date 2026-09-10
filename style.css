@@ -305,6 +305,46 @@ table.ranking tbody tr.jogador-row { cursor: pointer; }
 .form-erro { color: var(--red); font-size: 0.82rem; margin-top: 10px; }
 .hidden { display: none !important; }
 
+/* Introzinha ao abrir o site */
+.splash {
+  position: fixed; inset: 0; z-index: 500;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background:
+    radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(255, 255, 255, 0.06), transparent 65%),
+    radial-gradient(circle at 50% 40%, var(--felt-1) 0%, var(--felt-2) 45%, var(--felt-3) 100%);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.splash.splash-hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.splash-chip {
+  width: 104px; height: 104px; border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--gold-soft), 0 14px 40px rgba(0, 0, 0, 0.55);
+  animation: splash-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.splash-title {
+  font-family: "Sora", "Manrope", sans-serif; font-weight: 800; font-size: 1.6rem;
+  color: var(--text); letter-spacing: -0.01em; margin: 6px 0 0;
+  animation: splash-fade-up 0.6s 0.15s both;
+}
+.splash-sub {
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+  margin: 0; animation: splash-fade-up 0.6s 0.25s both;
+}
+.splash-suits {
+  display: flex; gap: 12px; font-size: 1.15rem; color: var(--text-muted); margin-top: 8px;
+  animation: splash-fade-up 0.6s 0.35s both;
+}
+@keyframes splash-pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes splash-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .splash-chip, .splash-title, .splash-sub, .splash-suits { animation: none; }
+}
+
 .toast {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
   background: #1b2028; border: 1px solid var(--panel-border); color: var(--text);

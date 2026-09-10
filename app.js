@@ -759,6 +759,21 @@ $("#btn-lancar").addEventListener("click", () => abrirLancamento());
 $("#btn-nova-etapa").addEventListener("click", () => abrirLancamento());
 
 // ============================================================================
+// INTROZINHA AO ABRIR
+// ============================================================================
+
+(function () {
+  const splash = $("#splash");
+  if (!splash) return;
+  const esconderSplash = () => {
+    splash.classList.add("splash-hide");
+    setTimeout(() => splash.remove(), 550);
+  };
+  splash.addEventListener("click", esconderSplash);
+  setTimeout(esconderSplash, 1400);
+})();
+
+// ============================================================================
 // BOOT
 // ============================================================================
 
