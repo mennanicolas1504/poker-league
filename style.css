@@ -261,6 +261,16 @@ table.ranking tbody tr.jogador-row { cursor: pointer; }
 .etapa-resultado-lista li .colocacao { color: var(--gold); font-weight: 800; width: 60px; }
 .etapa-resultado-lista li .pontos { color: var(--text-muted); font-variant-numeric: tabular-nums; }
 .etapa-resultado-lista li.top3 .colocacao { color: var(--gold); }
+.etapa-resultado-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.tag-convidado {
+  display: inline-block; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--text-muted); background: #262c34; border-radius: 999px; padding: 2px 8px; margin-left: 4px;
+}
+.convidado-toggle {
+  background: transparent; border: none; color: var(--text-muted); cursor: pointer;
+  font-size: 0.9rem; padding: 2px; opacity: 0.7; flex-shrink: 0;
+}
+.convidado-toggle:hover { opacity: 1; }
 
 /* Form */
 .field-label { display: block; font-size: 0.8rem; font-weight: 700; margin: 14px 0 6px; }
@@ -397,3 +407,17 @@ table.ranking tbody tr.jogador-row { cursor: pointer; }
 .jogador-stat-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 700; }
 .jogador-stat-valor { font-size: 1.15rem; font-weight: 800; }
 .jogador-nota { margin-top: 14px; }
+.jogador-historico-titulo { font-size: 0.85rem; margin: 18px 0 8px; }
+.jogador-historico-lista {
+  list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;
+  max-height: 240px; overflow-y: auto;
+}
+.jogador-historico-lista li {
+  display: flex; align-items: center; gap: 10px;
+  background: #1b2028; border-radius: var(--radius-sm); padding: 9px 12px; font-size: 0.85rem;
+  cursor: pointer; transition: background 0.12s ease;
+}
+.jogador-historico-lista li:hover { background: #212733; }
+.jogador-hist-data { flex: 1; color: var(--text-muted); }
+.jogador-hist-pos { font-weight: 700; width: 30px; }
+.jogador-hist-pts { color: var(--gold); font-variant-numeric: tabular-nums; }

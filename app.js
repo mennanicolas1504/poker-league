@@ -49,6 +49,7 @@ const TEMPORADA_ANO = new Date().getFullYear();
 // ============================================================================
 
 let etapasMap = new Map(); // dateId -> { date, results:[{name,position}], buyins, updatedAt }
+let convidadosSet = new Set(); // nomes marcados como convidado: aparecem no histórico, mas somem do ranking
 let colocacaoAtual = [];   // array de nomes por posição (índice 0 = 1º lugar); "" = posição vazia
 let etapaEmEdicao = null;  // dateId sendo editado, ou null se é etapa nova
 let etapaVisualizando = null; // dateId aberto no modal de visualização
@@ -116,6 +117,7 @@ function computeStandings(ignorarData = null) {
     if (data === ignorarData) continue;
     const jaContou = new Set();
     for (const r of etapa.results) {
+      if (convidadosSet.has(r.name)) continue; // convidados aparecem no histórico, não no ranking
       const nome = r.name;
       const atual = totals.get(nome) || { points: 0, etapas: 0 };
       atual.points += pointsForPosition(r.position);
@@ -138,6 +140,7 @@ function computeEmAlta() {
   const pontosRecentes = new Map();
   for (const data of datas) {
     for (const r of etapasMap.get(data).results) {
+      if (convidadosSet.has(r.name)) continue;
       pontosRecentes.set(r.name, (pontosRecentes.get(r.name) || 0) + pointsForPosition(r.position));
     }
   }
@@ -233,7 +236,7 @@ function renderEtapasList() {
           <span class="qtd">${etapa.results.length} jogador${etapa.results.length === 1 ? "" : "es"}</span>
         </div>
         <ol class="etapa-item-preview">
-          ${ordenado.map((r) => `<li><span>${r.position}º ${r.name}</span><strong>${pointsForPosition(r.position)} pts</strong></li>`).join("")}
+          ${ordenado.map((r) => `<li><span>${r.position}º ${r.name}${convidadosSet.has(r.name) ? " 🎟️" : ""}</span><strong>${pointsForPosition(r.position)} pts</strong></li>`).join("")}
         </ol>
       `;
     } else {
@@ -341,6 +344,26 @@ function renderTudo() {
 }
 
 // ============================================================================
+// CONVIDADOS (aparecem no histórico da etapa, mas somem do ranking)
+// ============================================================================
+
+// Adiciona ou remove um nome da lista de convidados guardada no Firestore.
+async function toggleConvidado(nome) {
+  const ehConvidado = convidadosSet.has(nome);
+  const novaLista = ehConvidado
+    ? Array.from(convidadosSet).filter((n) => n !== nome)
+    : [...Array.from(convidadosSet), nome];
+  try {
+    await authReady;
+    await setDoc(doc(db, "config", "convidados"), { nomes: novaLista });
+    showToast(ehConvidado ? `${nome} volta a contar no ranking normalmente.` : `${nome} marcado como convidado — some da Classificação Geral.`);
+  } catch (err) {
+    console.error(err);
+    showToast("Não deu para atualizar. Tente de novo.");
+  }
+}
+
+// ============================================================================
 // MODAL: VISUALIZAR ETAPA
 // ============================================================================
 
@@ -357,10 +380,15 @@ function abrirVisualizacaoEtapa(dateId) {
   ordenado.forEach((r) => {
     const li = document.createElement("li");
     if (r.position <= 3) li.classList.add("top3");
+    const ehConvidado = convidadosSet.has(r.name);
     li.innerHTML = `
       <span class="colocacao">${r.position}º</span>
-      <span style="flex:1">${r.name}</span>
-      <span class="pontos">${pointsForPosition(r.position)} pts</span>
+      <span style="flex:1">${r.name}${ehConvidado ? ' <span class="tag-convidado">convidado</span>' : ""}</span>
+      <span class="etapa-resultado-right">
+        <span class="pontos">${pointsForPosition(r.position)} pts</span>
+        <button type="button" class="mini-btn convidado-toggle" data-nome="${r.name.replace(/"/g, "&quot;")}"
+          title="${ehConvidado ? "Remover marca de convidado (volta a contar no ranking)" : "Marcar como convidado (some do ranking)"}">🎟️</button>
+      </span>
     `;
     lista.appendChild(li);
   });
@@ -368,17 +396,27 @@ function abrirVisualizacaoEtapa(dateId) {
   abrirModal("modal-etapa");
 }
 
+$("#modal-etapa-lista").addEventListener("click", (e) => {
+  const btn = e.target.closest(".convidado-toggle");
+  if (!btn) return;
+  toggleConvidado(btn.dataset.nome);
+});
+
 // ============================================================================
 // MODAL: PERFIL DO JOGADOR
 // ============================================================================
 
 function computePlayerStats(nome) {
   let vitorias = 0, segundos = 0, terceiros = 0, valorGanho = 0, pontos = 0, etapasJogadas = 0;
-  for (const etapa of etapasMap.values()) {
+  const historico = [];
+  const datasOrdenadas = Array.from(etapasMap.keys()).sort(); // mais antiga primeiro
+  for (const data of datasOrdenadas) {
+    const etapa = etapasMap.get(data);
     const resultado = etapa.results.find((r) => r.name === nome);
     if (!resultado) continue;
     etapasJogadas += 1;
-    pontos += pointsForPosition(resultado.position);
+    const pts = pointsForPosition(resultado.position);
+    pontos += pts;
     if (resultado.position === 1) vitorias += 1;
     else if (resultado.position === 2) segundos += 1;
     else if (resultado.position === 3) terceiros += 1;
@@ -387,8 +425,11 @@ function computePlayerStats(nome) {
     const buyinsDoDia = etapa.buyins || etapa.results.length;
     if (resultado.position === 1) valorGanho += VALOR_BUYIN_PREMIACAO_DIARIA * buyinsDoDia * 0.7;
     else if (resultado.position === 2) valorGanho += VALOR_BUYIN_PREMIACAO_DIARIA * buyinsDoDia * 0.3;
+
+    historico.push({ date: data, position: resultado.position, pontos: pts });
   }
-  return { nome, vitorias, segundos, terceiros, valorGanho, pontos, etapasJogadas };
+  historico.reverse(); // mais recente primeiro
+  return { nome, vitorias, segundos, terceiros, valorGanho, pontos, etapasJogadas, historico };
 }
 
 function abrirPerfilJogador(nome) {
@@ -400,8 +441,31 @@ function abrirPerfilJogador(nome) {
   $("#jogador-terceiros").textContent = stats.terceiros;
   $("#jogador-pontos").textContent = stats.pontos;
   $("#jogador-etapas").textContent = stats.etapasJogadas;
+
+  const lista = $("#jogador-historico-lista");
+  lista.innerHTML = stats.historico.length
+    ? stats.historico
+        .map(
+          (h) => `
+      <li data-date="${h.date}">
+        <span class="jogador-hist-data">${formatDateBR(h.date)}</span>
+        <span class="jogador-hist-pos">${h.position}º</span>
+        <span class="jogador-hist-pts">${h.pontos} pts</span>
+      </li>`
+        )
+        .join("")
+    : `<li class="empty-hint">Nenhuma etapa ainda.</li>`;
+
   abrirModal("modal-jogador");
 }
+
+// Clicar numa linha do histórico do perfil abre o detalhe daquela etapa.
+$("#jogador-historico-lista").addEventListener("click", (e) => {
+  const li = e.target.closest("li[data-date]");
+  if (!li) return;
+  fecharModal("modal-jogador");
+  abrirVisualizacaoEtapa(li.dataset.date);
+});
 
 // ============================================================================
 // MODAL: LANÇAR / EDITAR ETAPA
@@ -571,7 +635,7 @@ $("#lista-colocacao").addEventListener(
     const nomesConhecidos = coletarNomesConhecidos();
     const jaConfirmado = nomesConfirmadosNaSessao.has(nome.toLowerCase());
     if (!nomesConhecidos.has(nome) && !jaConfirmado) {
-      const confirmar = confirm(`"${nome}" ainda não está no ranking. Adicionar esse jogador novo?`);
+      const confirmar = confirm(`"${nome}" ainda não está no ranking. Adicionar esse jogador?`);
       if (!confirmar) {
         colocacaoAtual[i] = "";
         input.value = "";
@@ -579,6 +643,11 @@ $("#lista-colocacao").addEventListener(
       }
       nomesConfirmadosNaSessao.add(nome.toLowerCase());
       input.classList.add("is-novo");
+
+      const ehConvidado = confirm(
+        `"${nome}" é convidado?\n\nConvidado aparece no histórico da etapa, mas não entra na Classificação Geral.\n\nOK = é convidado. Cancelar = jogador normal, entra no ranking.`
+      );
+      if (ehConvidado) toggleConvidado(nome);
     } else {
       input.classList.remove("is-novo");
     }
@@ -795,4 +864,13 @@ onSnapshot(
     console.error(err);
     $("#ranking-body").innerHTML = `<tr><td colspan="4" class="empty-hint">Não deu para carregar os dados. Confira firebase-config.js e as regras do Firestore (veja o README).</td></tr>`;
   }
+);
+
+onSnapshot(
+  doc(db, "config", "convidados"),
+  (snap) => {
+    convidadosSet = new Set(snap.exists() ? snap.data().nomes || [] : []);
+    renderTudo(); // a lista de convidados muda o ranking, então recalcula tudo
+  },
+  (err) => console.error(err)
 );
