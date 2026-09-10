@@ -109,7 +109,7 @@ h1, h2, h3 {
 /* Layout */
 .layout {
   max-width: 1180px;
-  margin: 0 auto;
+  margin: 24px auto 0;
   padding: 44px 44px 74px;
   display: grid;
   grid-template-columns: 260px 1fr 300px;
