@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Poker League Championship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-icon">♣</span>
+      <div>
+        <strong>Poker League</strong>
+        <span>Championship</span>
+      </div>
+    </div>
+    <button id="btn-lancar" class="btn btn-primary">
+      <span>+</span> Lançar resultado
+    </button>
+  </div>
+</div>
+
+<main class="layout">
+
+  <aside class="panel sidebar">
+    <h2>Etapas / Datas</h2>
+    <p class="muted">Temporada <span id="temporada-ano">2026</span></p>
+    <p id="proxima-etapa" class="proxima-etapa"></p>
+    <div id="lista-etapas" class="etapas-list">
+      <p class="empty-hint">Carregando etapas…</p>
+    </div>
+    <button id="btn-nova-etapa" class="btn btn-ghost btn-block">+ Nova etapa</button>
+  </aside>
+
+  <section class="panel main">
+    <div class="main-header">
+      <div>
+        <h1>Classificação Geral</h1>
+        <p id="main-subtitle" class="main-subtitle muted small">Temporada 2026</p>
+      </div>
+      <span id="badge-atualizado" class="badge badge-soft">atualizado agora</span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="ranking">
+        <thead>
+          <tr>
+            <th class="col-pos">Pos</th>
+            <th>Jogador</th>
+            <th class="col-num">Pontos</th>
+            <th class="col-num">Etapas</th>
+          </tr>
+        </thead>
+        <tbody id="ranking-body">
+          <tr><td colspan="4" class="empty-hint">Carregando classificação…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <aside class="panel info">
+    <h2><span class="info-icon">ⓘ</span> Tabela de Pontuação</h2>
+    <p class="muted">Pontos por colocação em cada etapa. Do 6º lugar em diante não pontua.</p>
+    <ul class="points-table" id="points-table"></ul>
+
+    <div class="premio-box">
+      <div class="premio-head">
+        <span class="premio-tag">🎁 Prêmio atual</span>
+        <button id="btn-editar-premio" class="btn-icon" title="Editar premiação">✎</button>
+      </div>
+      <span id="premio-valor" class="premio-valor">R$ 0,00</span>
+      <span id="premio-sub" class="premio-sub muted small">carregando…</span>
+    </div>
+  </aside>
+
+</main>
+
+<footer class="footer">
+  <p>Feito pelo grupo, para o grupo — qualquer jogador pode lançar o resultado do dia. 🃏</p>
+</footer>
+
+<!-- Modal: ver resultado de uma etapa -->
+<div id="modal-etapa" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <span class="modal-eyebrow">Pontuação da etapa</span>
+        <h3 id="modal-etapa-data">--/--/----</h3>
+      </div>
+      <button class="modal-close" data-close="modal-etapa">✕</button>
+    </div>
+    <ol id="modal-etapa-lista" class="etapa-resultado-lista"></ol>
+    <div class="modal-actions">
+      <button id="btn-editar-etapa" class="btn btn-ghost">✎ Editar esta etapa</button>
+      <button id="btn-excluir-etapa" class="btn btn-danger-ghost">Excluir etapa</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: lançar / editar resultado -->
+<div id="modal-lancar" class="modal hidden">
+  <div class="modal-card modal-card-wide">
+    <div class="modal-head">
+      <div>
+        <span class="modal-eyebrow" id="lancar-eyebrow">Nova etapa</span>
+        <h3>Lançar resultado</h3>
+      </div>
+      <button class="modal-close" data-close="modal-lancar">✕</button>
+    </div>
+
+    <label class="field-label" for="input-data-etapa">Data da etapa</label>
+    <input type="date" id="input-data-etapa" class="input" />
+
+    <label class="field-label">Ordem de colocação (do 1º ao último)</label>
+    <p class="muted small">Preencha os nomes na ordem de colocação. Jogadores já conhecidos aparecem sugeridos; nome novo pede confirmação antes de entrar pro ranking.</p>
+
+    <ol id="lista-colocacao" class="colocacao-lista"></ol>
+    <button id="btn-add-posicao" class="btn btn-ghost btn-block" type="button">+ Mais uma posição</button>
+
+    <label class="field-label" for="input-buyins">Quantos buy-ins nesta etapa? (buy-in + rebuy)</label>
+    <p class="muted small">Cada buy-in soma R$&nbsp;5 na premiação automaticamente. Deixe em branco se não for controlar isso agora.</p>
+    <input type="number" id="input-buyins" class="input" min="0" step="1" placeholder="Ex: 12" />
+
+    <p id="lancar-erro" class="form-erro hidden"></p>
+
+    <div class="modal-actions">
+      <button id="btn-salvar-etapa" class="btn btn-primary">Salvar etapa</button>
+      <button class="btn btn-ghost" data-close="modal-lancar">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: perfil do jogador -->
+<div id="modal-jogador" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <span class="modal-eyebrow">Perfil do jogador</span>
+        <h3 id="jogador-nome">--</h3>
+      </div>
+      <button class="modal-close" data-close="modal-jogador">✕</button>
+    </div>
+    <div class="jogador-stats-grid">
+      <div class="jogador-stat jogador-stat-destaque">
+        <span class="jogador-stat-label">💰 Valor ganho (estimado)</span>
+        <span class="jogador-stat-valor" id="jogador-valor-ganho">R$ 0,00</span>
+      </div>
+      <div class="jogador-stat">
+        <span class="jogador-stat-label">🥇 Vitórias</span>
+        <span class="jogador-stat-valor" id="jogador-vitorias">0</span>
+      </div>
+      <div class="jogador-stat">
+        <span class="jogador-stat-label">🥈 2º lugares</span>
+        <span class="jogador-stat-valor" id="jogador-segundos">0</span>
+      </div>
+      <div class="jogador-stat">
+        <span class="jogador-stat-label">🥉 3º lugares</span>
+        <span class="jogador-stat-valor" id="jogador-terceiros">0</span>
+      </div>
+      <div class="jogador-stat">
+        <span class="jogador-stat-label">Pontos</span>
+        <span class="jogador-stat-valor" id="jogador-pontos">0</span>
+      </div>
+      <div class="jogador-stat">
+        <span class="jogador-stat-label">Etapas jogadas</span>
+        <span class="jogador-stat-valor" id="jogador-etapas">0</span>
+      </div>
+    </div>
+    <p class="muted small jogador-nota">Valor ganho é uma estimativa: R$&nbsp;15 por buy-in do dia, 70% pro 1º e 30% pro 2º lugar. Etapas antigas sem número de buy-in usam a quantidade de jogadores daquele dia no lugar.</p>
+  </div>
+</div>
+
+<div id="autocomplete-box" class="autocomplete-box hidden"></div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

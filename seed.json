@@ -1,0 +1,598 @@
+{
+  "premiacao": 765,
+  "etapas": [
+    {
+      "date": "2026-01-08",
+      "results": [
+        {
+          "position": 1,
+          "name": "Jeype"
+        },
+        {
+          "position": 3,
+          "name": "Nico"
+        },
+        {
+          "position": 4,
+          "name": "Coelho"
+        },
+        {
+          "position": 5,
+          "name": "Vitor"
+        },
+        {
+          "position": 6,
+          "name": "VH"
+        },
+        {
+          "position": 7,
+          "name": "Arthur"
+        }
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "results": [
+        {
+          "position": 1,
+          "name": "Coelho"
+        },
+        {
+          "position": 2,
+          "name": "Nico"
+        },
+        {
+          "position": 4,
+          "name": "Tetéu"
+        },
+        {
+          "position": 5,
+          "name": "Bruno"
+        },
+        {
+          "position": 6,
+          "name": "Vitor"
+        },
+        {
+          "position": 7,
+          "name": "Buss"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-05",
+      "results": [
+        {
+          "position": 1,
+          "name": "VH"
+        },
+        {
+          "position": 2,
+          "name": "Coelho"
+        },
+        {
+          "position": 3,
+          "name": "Arthur"
+        },
+        {
+          "position": 4,
+          "name": "Nico"
+        },
+        {
+          "position": 5,
+          "name": "Bruno"
+        },
+        {
+          "position": 6,
+          "name": "Tetéu"
+        },
+        {
+          "position": 7,
+          "name": "Vitor"
+        },
+        {
+          "position": 8,
+          "name": "Buss"
+        }
+      ]
+    },
+    {
+      "date": "2026-02-19",
+      "results": [
+        {
+          "position": 1,
+          "name": "Mano"
+        },
+        {
+          "position": 2,
+          "name": "VH"
+        },
+        {
+          "position": 3,
+          "name": "Jeype"
+        },
+        {
+          "position": 4,
+          "name": "Vitor"
+        },
+        {
+          "position": 5,
+          "name": "Buss"
+        },
+        {
+          "position": 6,
+          "name": "Vini"
+        },
+        {
+          "position": 7,
+          "name": "Bruno"
+        },
+        {
+          "position": 8,
+          "name": "Coelho"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "results": [
+        {
+          "position": 1,
+          "name": "Vitor"
+        },
+        {
+          "position": 2,
+          "name": "Buss"
+        },
+        {
+          "position": 3,
+          "name": "Vini"
+        },
+        {
+          "position": 4,
+          "name": "Jeype"
+        },
+        {
+          "position": 5,
+          "name": "Coelho"
+        },
+        {
+          "position": 6,
+          "name": "Tetéu"
+        },
+        {
+          "position": 7,
+          "name": "Nico"
+        },
+        {
+          "position": 8,
+          "name": "Arthur"
+        }
+      ]
+    },
+    {
+      "date": "2026-03-19",
+      "results": [
+        {
+          "position": 1,
+          "name": "Coelho"
+        },
+        {
+          "position": 2,
+          "name": "Vitor"
+        },
+        {
+          "position": 3,
+          "name": "Jeype"
+        },
+        {
+          "position": 4,
+          "name": "Mano"
+        },
+        {
+          "position": 5,
+          "name": "Arthur"
+        },
+        {
+          "position": 6,
+          "name": "Buss"
+        },
+        {
+          "position": 7,
+          "name": "Nico"
+        },
+        {
+          "position": 8,
+          "name": "VH"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "results": [
+        {
+          "position": 1,
+          "name": "Mano"
+        },
+        {
+          "position": 2,
+          "name": "Vitor"
+        },
+        {
+          "position": 3,
+          "name": "Buss"
+        },
+        {
+          "position": 4,
+          "name": "Nico"
+        },
+        {
+          "position": 5,
+          "name": "VH"
+        },
+        {
+          "position": 6,
+          "name": "Jeype"
+        },
+        {
+          "position": 7,
+          "name": "Coelho"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "results": [
+        {
+          "position": 1,
+          "name": "Coelho"
+        },
+        {
+          "position": 2,
+          "name": "Nico"
+        },
+        {
+          "position": 3,
+          "name": "Vitor"
+        },
+        {
+          "position": 4,
+          "name": "VH"
+        },
+        {
+          "position": 5,
+          "name": "Bruno"
+        },
+        {
+          "position": 6,
+          "name": "Buss"
+        },
+        {
+          "position": 7,
+          "name": "Jeype"
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "results": [
+        {
+          "position": 1,
+          "name": "Vitor"
+        },
+        {
+          "position": 2,
+          "name": "Ruda"
+        },
+        {
+          "position": 3,
+          "name": "Arthur"
+        },
+        {
+          "position": 4,
+          "name": "Jeype"
+        },
+        {
+          "position": 5,
+          "name": "Coelho"
+        },
+        {
+          "position": 6,
+          "name": "Bruno"
+        },
+        {
+          "position": 7,
+          "name": "Nico"
+        },
+        {
+          "position": 8,
+          "name": "Buss"
+        },
+        {
+          "position": 9,
+          "name": "Vitor"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-14",
+      "results": [
+        {
+          "position": 1,
+          "name": "Buss"
+        },
+        {
+          "position": 2,
+          "name": "Nico"
+        },
+        {
+          "position": 3,
+          "name": "Arthur"
+        },
+        {
+          "position": 4,
+          "name": "Vitor"
+        },
+        {
+          "position": 5,
+          "name": "VH"
+        },
+        {
+          "position": 6,
+          "name": "Jeype"
+        },
+        {
+          "position": 7,
+          "name": "Mano"
+        }
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "results": [
+        {
+          "position": 1,
+          "name": "Coelho"
+        },
+        {
+          "position": 2,
+          "name": "Nico"
+        },
+        {
+          "position": 3,
+          "name": "Arthur"
+        },
+        {
+          "position": 4,
+          "name": "Vini"
+        },
+        {
+          "position": 5,
+          "name": "Vitor"
+        },
+        {
+          "position": 6,
+          "name": "VH"
+        },
+        {
+          "position": 7,
+          "name": "Buss"
+        },
+        {
+          "position": 8,
+          "name": "Ruda"
+        },
+        {
+          "position": 9,
+          "name": "Jeype"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-11",
+      "results": [
+        {
+          "position": 1,
+          "name": "Vitor"
+        },
+        {
+          "position": 2,
+          "name": "Mano"
+        },
+        {
+          "position": 3,
+          "name": "VH"
+        },
+        {
+          "position": 4,
+          "name": "Bruno"
+        },
+        {
+          "position": 5,
+          "name": "Nico"
+        },
+        {
+          "position": 6,
+          "name": "Buss"
+        },
+        {
+          "position": 7,
+          "name": "Jeype"
+        },
+        {
+          "position": 8,
+          "name": "Coelho"
+        },
+        {
+          "position": 9,
+          "name": "Arthur"
+        }
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "results": [
+        {
+          "position": 1,
+          "name": "VH"
+        },
+        {
+          "position": 2,
+          "name": "Bruno"
+        },
+        {
+          "position": 3,
+          "name": "Buss"
+        },
+        {
+          "position": 4,
+          "name": "Vitor"
+        },
+        {
+          "position": 5,
+          "name": "Jeype"
+        },
+        {
+          "position": 6,
+          "name": "Nico"
+        },
+        {
+          "position": 7,
+          "name": "Coelho"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "results": [
+        {
+          "position": 1,
+          "name": "Vini"
+        },
+        {
+          "position": 2,
+          "name": "Mano"
+        },
+        {
+          "position": 3,
+          "name": "Jeype"
+        },
+        {
+          "position": 4,
+          "name": "Coelho"
+        },
+        {
+          "position": 5,
+          "name": "VH"
+        },
+        {
+          "position": 6,
+          "name": "Nico"
+        },
+        {
+          "position": 7,
+          "name": "Vitor"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "results": [
+        {
+          "position": 1,
+          "name": "Buss"
+        },
+        {
+          "position": 2,
+          "name": "Jeype"
+        },
+        {
+          "position": 3,
+          "name": "Vitor"
+        },
+        {
+          "position": 4,
+          "name": "Bruno"
+        },
+        {
+          "position": 5,
+          "name": "Nico"
+        },
+        {
+          "position": 6,
+          "name": "Igor"
+        },
+        {
+          "position": 7,
+          "name": "Vitor"
+        },
+        {
+          "position": 8,
+          "name": "Coelho"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "results": [
+        {
+          "position": 1,
+          "name": "Nico"
+        },
+        {
+          "position": 2,
+          "name": "Coelho"
+        },
+        {
+          "position": 3,
+          "name": "Vitor"
+        },
+        {
+          "position": 5,
+          "name": "Buss"
+        },
+        {
+          "position": 6,
+          "name": "Vini"
+        },
+        {
+          "position": 7,
+          "name": "Arthur"
+        }
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "results": [
+        {
+          "position": 1,
+          "name": "Igor"
+        },
+        {
+          "position": 2,
+          "name": "Coelho"
+        },
+        {
+          "position": 3,
+          "name": "Buss"
+        },
+        {
+          "position": 4,
+          "name": "Nico"
+        },
+        {
+          "position": 5,
+          "name": "Ruda"
+        },
+        {
+          "position": 6,
+          "name": "VH"
+        },
+        {
+          "position": 7,
+          "name": "Vitor"
+        }
+      ]
+    }
+  ]
+}

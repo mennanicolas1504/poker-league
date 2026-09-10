@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Importar dados antigos — Poker League</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main class="layout" style="grid-template-columns: 1fr; max-width: 640px;">
+  <section class="panel">
+    <h1 style="margin-bottom: 10px;">Importar dados antigos</h1>
+    <p class="muted">
+      Essa página lê o arquivo <code>seed.json</code> (gerado a partir da sua planilha antiga)
+      e envia os resultados das 17 etapas + a premiação para o Firestore, de uma vez só.
+    </p>
+    <p class="muted">Use apenas <strong>uma vez</strong>, logo depois de configurar o Firebase. Etapas que já existirem no banco não são sobrescritas.</p>
+    <button id="btn-importar" class="btn btn-primary" style="margin-top: 16px;">Importar dados da planilha</button>
+    <pre id="log" style="margin-top: 18px; white-space: pre-wrap; font-size: 0.82rem; color: var(--text-muted);"></pre>
+  </section>
+</main>
+
+<script type="module" src="import.js"></script>
+</body>
+</html>
