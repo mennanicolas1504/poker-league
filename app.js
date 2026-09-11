@@ -24,6 +24,11 @@ function pointsForPosition(pos) {
 // Isso NÃO é segurança de verdade (veja o README) — troque se quiser.
 const ORG_PIN = "poker2026";
 
+// Senha do admin pra lançar/editar/excluir etapa e marcar convidado.
+// Também NÃO é segurança de verdade — é client-side, só trava a interface
+// pra gente comum não usar por engano. Troque aqui se quiser outra.
+const ADMIN_PIN = "1504";
+
 // Quantas posições já vêm abertas no formulário de lançamento.
 const SLOTS_INICIAIS = 9;
 
@@ -55,6 +60,7 @@ let etapaEmEdicao = null;  // dateId sendo editado, ou null se é etapa nova
 let etapaVisualizando = null; // dateId aberto no modal de visualização
 let nomesConfirmadosNaSessao = new Set(); // nomes novos que o usuário já confirmou nesta sessão (não pergunta de novo)
 let autocompleteInputAtivo = null; // input de nome que está mostrando sugestões no momento
+let adminDesbloqueado = false; // true depois que a senha do admin foi digitada certa nesta visita
 
 // ============================================================================
 // HELPERS DE DOM
@@ -78,6 +84,20 @@ function showToast(msg) {
   toast.classList.remove("hidden");
   clearTimeout(showToast._t);
   showToast._t = setTimeout(() => toast.classList.add("hidden"), 2800);
+}
+
+// Pede a senha do admin (só uma vez por visita — depois de acertar, libera
+// lançar/editar/excluir etapa e marcar convidado até a página ser recarregada).
+function verificarAdmin() {
+  if (adminDesbloqueado) return true;
+  const pin = prompt("Senha do admin pra lançar/editar resultado:");
+  if (pin === null) return false;
+  if (pin !== ADMIN_PIN) {
+    showToast("Senha incorreta.");
+    return false;
+  }
+  adminDesbloqueado = true;
+  return true;
 }
 
 function relativeTime(ts) {
@@ -399,6 +419,7 @@ function abrirVisualizacaoEtapa(dateId) {
 $("#modal-etapa-lista").addEventListener("click", (e) => {
   const btn = e.target.closest(".convidado-toggle");
   if (!btn) return;
+  if (!verificarAdmin()) return;
   toggleConvidado(btn.dataset.nome);
 });
 
@@ -734,6 +755,7 @@ $("#btn-salvar-etapa").addEventListener("click", async () => {
 // ============================================================================
 
 $("#btn-editar-etapa").addEventListener("click", () => {
+  if (!verificarAdmin()) return;
   const etapa = etapasMap.get(etapaVisualizando);
   fecharModal("modal-etapa");
   abrirLancamento({ dateId: etapa.date, prefill: etapa.results, buyins: etapa.buyins || 0 });
@@ -741,6 +763,7 @@ $("#btn-editar-etapa").addEventListener("click", () => {
 
 $("#btn-excluir-etapa").addEventListener("click", async () => {
   if (!etapaVisualizando) return;
+  if (!verificarAdmin()) return;
   const ok = confirm(`Excluir a etapa de ${formatDateBR(etapaVisualizando)}? Essa ação não pode ser desfeita.`);
   if (!ok) return;
   const etapa = etapasMap.get(etapaVisualizando);
@@ -824,8 +847,14 @@ $$(".modal").forEach((modal) => {
   });
 });
 
-$("#btn-lancar").addEventListener("click", () => abrirLancamento());
-$("#btn-nova-etapa").addEventListener("click", () => abrirLancamento());
+$("#btn-lancar").addEventListener("click", () => {
+  if (!verificarAdmin()) return;
+  abrirLancamento();
+});
+$("#btn-nova-etapa").addEventListener("click", () => {
+  if (!verificarAdmin()) return;
+  abrirLancamento();
+});
 
 // ============================================================================
 // INTROZINHA AO ABRIR

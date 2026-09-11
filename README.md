@@ -105,26 +105,30 @@ Em alguns minutos o site fica disponível em
 
 ## Como o pessoal vai usar no dia a dia
 
-- Qualquer um abre o link, clica em **+ Lançar resultado**, escolhe a data,
-  digita os nomes de quem jogou na ordem de colocação (dá pra reordenar com
-  as setinhas) e salva. A classificação geral atualiza sozinha pra todo mundo.
-- Clicando em uma etapa na lista da esquerda, dá pra ver a pontuação daquele
-  dia, editar ou excluir (caso alguém erre a colocação).
-- A premiação (o valor em destaque no canto) só é editável com uma senha
-  simples, hoje `poker2026`, que dá pra trocar direto no `app.js` (constante
-  `ORG_PIN`) — é só uma trava contra clique errado, não é segurança de
-  verdade (veja a observação abaixo).
+- Qualquer um abre o link e vê a classificação, o histórico das etapas e o
+  perfil de cada jogador em tempo real.
+- Só o admin lança, edita ou exclui resultado, e marca alguém como
+  convidado: ao clicar em **+ Lançar resultado**, **Editar esta etapa**,
+  **Excluir etapa** ou no 🎟️, o site pede uma senha (hoje `1504`, constante
+  `ADMIN_PIN` no `app.js`) — depois de acertar uma vez, fica liberado até
+  fechar a aba. É só uma trava de interface contra clique errado, não é
+  segurança de verdade (veja a observação abaixo).
+- A premiação (o valor em destaque no canto) tem sua própria senha, hoje
+  `poker2026` (constante `ORG_PIN`) — mesma ideia, é só uma trava simples.
 
 ## Sobre segurança (seja honesto com o grupo sobre isso)
 
-As regras do Firestore (`firestore.rules`) deixam **qualquer pessoa que abrir
-o site** lançar, editar ou apagar etapas — sem senha, sem cadastro. Isso é de
-propósito, porque você pediu pra qualquer jogador conseguir preencher sem
-fricção. Funciona bem pra um grupo de amigos com o link fechado entre vocês.
-Se um dia o link vazar pra gente de fora e isso virar um problema (alguém
-mexendo na classificação por brincadeira), me chama que a gente troca esse
-esquema por um login de verdade (ex: cada jogador com e-mail/senha, ou só o
-organizador podendo editar).
+As senhas do admin e da premiação são conferidas no JavaScript que roda no
+navegador de quem está vendo o site — servem pra evitar que alguém mexa por
+engano ou de brincadeira clicando nos botões normais, mas não travam a
+gravação no banco: as regras do Firestore (`firestore.rules`) ainda deixam
+**qualquer pessoa que abrir o site** escrever ali (é o login anônimo
+automático), então alguém com conhecimento técnico (abrindo o console do
+navegador, por exemplo) conseguiria contornar a senha. Funciona bem pra um
+grupo de amigos com o link fechado entre vocês. Se um dia isso virar um
+problema de verdade, me chama que a gente troca esse esquema por um login
+de verdade (ex: cada jogador com e-mail/senha, ou as regras do Firestore já
+exigindo o PIN do admin pra escrever).
 
 ## Trocar a paleta / visual
 
