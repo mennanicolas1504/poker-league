@@ -7,13 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=13" />
+<link rel="stylesheet" href="style.css?v=14" />
 
 <!-- Ícone do app (usado ao adicionar à tela de início no celular) -->
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" href="icons/favicon-32.png" type="image/png" />
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-<meta name="theme-color" content="#120a0a" />
+<meta name="theme-color" content="#1a0506" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Quinta Flush" />
@@ -27,96 +27,27 @@
       <svg class="splash-crown" viewBox="0 0 64 42" aria-hidden="true">
         <defs>
           <linearGradient id="crownGold" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#fff0b8"/>
-            <stop offset="0.55" stop-color="#e0b053"/>
-            <stop offset="1" stop-color="#b9822a"/>
+            <stop offset="0" stop-color="#fff8e1"/>
+            <stop offset="0.55" stop-color="#e3cf9c"/>
+            <stop offset="1" stop-color="#b79f66"/>
           </linearGradient>
         </defs>
-        <path d="M5 36 L8 11 L21 23 L32 5 L43 23 L56 11 L59 36 Z" fill="url(#crownGold)" stroke="#5a2a05" stroke-width="2.5" stroke-linejoin="round"/>
-        <rect x="5" y="34" width="54" height="6" rx="2" fill="url(#crownGold)" stroke="#5a2a05" stroke-width="2.5"/>
-        <circle cx="32" cy="29" r="3.2" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
-        <circle cx="8" cy="10" r="2.6" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
-        <circle cx="56" cy="10" r="2.6" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
-        <circle cx="32" cy="5" r="2.6" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
+        <path d="M5 36 L8 11 L21 23 L32 5 L43 23 L56 11 L59 36 Z" fill="url(#crownGold)" stroke="#2a0707" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="5" y="34" width="54" height="6" rx="2" fill="url(#crownGold)" stroke="#2a0707" stroke-width="2.5"/>
+        <circle cx="32" cy="29" r="3.2" fill="#c9302f" stroke="#2a0707" stroke-width="1.5"/>
+        <circle cx="8" cy="10" r="2.6" fill="#c9302f" stroke="#2a0707" stroke-width="1.5"/>
+        <circle cx="56" cy="10" r="2.6" fill="#c9302f" stroke="#2a0707" stroke-width="1.5"/>
+        <circle cx="32" cy="5" r="2.6" fill="#c9302f" stroke="#2a0707" stroke-width="1.5"/>
       </svg>
       <h1 class="splash-title">QUINTA FLUSH</h1>
-      <p class="splash-sub">A Pair Of Balls Beats Everything!</p>
+      <p class="splash-sub">Um par de bolas vence tudo!</p>
     </div>
-    <svg class="splash-svg" viewBox="0 0 520 400" aria-hidden="true">
-  <defs>
-    <radialGradient id="gFelt" cx="50%" cy="38%" r="70%">
-      <stop offset="0" stop-color="#37935f"/>
-      <stop offset="0.5" stop-color="#1d6c44"/>
-      <stop offset="1" stop-color="#0b3d27"/>
-    </radialGradient>
-    <linearGradient id="gRail" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#4a4a52"/>
-      <stop offset="0.35" stop-color="#1f1f23"/>
-      <stop offset="1" stop-color="#08080a"/>
-    </linearGradient>
-    <radialGradient id="gLight" cx="50%" cy="50%" r="50%">
-      <stop offset="0" stop-color="#fff6d0" stop-opacity=".30"/>
-      <stop offset="1" stop-color="#fff6d0" stop-opacity="0"/>
-    </radialGradient>
-    <filter id="fBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2"/></filter>
-    <filter id="fBlurBig" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="9"/></filter>
-    <filter id="fNoise" x="0" y="0" width="100%" height="100%">
-      <feTurbulence type="fractalNoise" baseFrequency=".95" numOctaves="2" seed="7" result="n"/>
-      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 -.25" result="m"/>
-      <feComposite in="m" in2="SourceGraphic" operator="in"/>
-    </filter>
-    <path id="arcTxt" d="M 128 336 Q 260 380 392 336"/>
-  </defs>
-
-  <!-- sombra no chão -->
-  <ellipse cx="260" cy="362" rx="246" ry="30" fill="#000" opacity=".55" filter="url(#fBlurBig)"/>
-
-  <!-- dealer atrás da mesa -->
-  <image href="img/dealer.png" x="132" y="26" width="256" height="199"/>
-
-  <!-- lateral da mesa -->
-  <ellipse cx="260" cy="314" rx="250" ry="108" fill="#050506"/>
-  <!-- rail acolchoado -->
-  <ellipse cx="260" cy="300" rx="250" ry="108" fill="url(#gRail)"/>
-  <path d="M 16 296 A 244 103 0 0 1 504 296" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="3" filter="url(#fBlur)"/>
-  <ellipse cx="260" cy="300" rx="228" ry="90" fill="#000" opacity=".6"/>
-  <!-- feltro -->
-  <ellipse cx="260" cy="300" rx="222" ry="84" fill="url(#gFelt)"/>
-  <ellipse cx="260" cy="300" rx="222" ry="84" fill="#fff" filter="url(#fNoise)" opacity=".16"/>
-  <ellipse cx="260" cy="300" rx="224" ry="86" fill="none" stroke="#e0b053" stroke-opacity=".55" stroke-width="1.3"/>
-  <!-- luz de cima -->
-  <ellipse cx="260" cy="278" rx="170" ry="52" fill="url(#gLight)"/>
-  <!-- linha de aposta e nome -->
-  <ellipse cx="260" cy="300" rx="172" ry="56" fill="none" stroke="#f3e6c4" stroke-opacity=".32" stroke-width="1.4" stroke-dasharray="6 5"/>
-  <text font-family="'Alfa Slab One', Georgia, serif" font-size="18" letter-spacing="4" fill="#f3e6c4" fill-opacity=".38" text-anchor="middle">
-    <textPath href="#arcTxt" startOffset="50%">QUINTA FLUSH</textPath>
-  </text>
-
-  <!-- baralho perto do dealer -->
-  <rect x="224" y="226" width="30" height="9" rx="1.5" fill="#d9ccaa" stroke="#9c8e68" stroke-width=".8"/>
-  <rect x="224" y="222" width="30" height="9" rx="1.5" fill="#f6efe0" stroke="#bfb08a" stroke-width=".8"/>
-  <rect x="228" y="224.5" width="22" height="3" rx="1" fill="#b3262b" opacity=".85"/>
-
-  <!-- flush de copas na mesa -->
-  <g transform="translate(186 296) scale(1 .72) rotate(-4)"><rect x="-14" y="-18" width="30" height="42" rx="3" fill="#000" opacity=".35" filter="url(#fBlur)"/><rect x="-15" y="-21" width="30" height="42" rx="3" fill="#f6efe0" stroke="#bfb08a" stroke-width=".8"/><text x="-11" y="-9" font-family="Georgia,serif" font-weight="700" font-size="10" fill="#c2262b">10</text><text x="-8.5" y="3" font-family="Arial,sans-serif" font-size="9" fill="#c2262b">♥</text><text x="-7" y="17" font-family="Arial,sans-serif" font-size="20" fill="#c2262b">♥</text></g>
-  <g transform="translate(224 293) scale(1 .72) rotate(-2)"><rect x="-14" y="-18" width="30" height="42" rx="3" fill="#000" opacity=".35" filter="url(#fBlur)"/><rect x="-15" y="-21" width="30" height="42" rx="3" fill="#f6efe0" stroke="#bfb08a" stroke-width=".8"/><text x="-11" y="-9" font-family="Georgia,serif" font-weight="700" font-size="12" fill="#c2262b">J</text><text x="-8.5" y="3" font-family="Arial,sans-serif" font-size="9" fill="#c2262b">♥</text><text x="-7" y="17" font-family="Arial,sans-serif" font-size="20" fill="#c2262b">♥</text></g>
-  <g transform="translate(262 292) scale(1 .72) rotate(0)"><rect x="-14" y="-18" width="30" height="42" rx="3" fill="#000" opacity=".35" filter="url(#fBlur)"/><rect x="-15" y="-21" width="30" height="42" rx="3" fill="#f6efe0" stroke="#bfb08a" stroke-width=".8"/><text x="-11" y="-9" font-family="Georgia,serif" font-weight="700" font-size="12" fill="#c2262b">Q</text><text x="-8.5" y="3" font-family="Arial,sans-serif" font-size="9" fill="#c2262b">♥</text><text x="-7" y="17" font-family="Arial,sans-serif" font-size="20" fill="#c2262b">♥</text></g>
-  <g transform="translate(300 293) scale(1 .72) rotate(2)"><rect x="-14" y="-18" width="30" height="42" rx="3" fill="#000" opacity=".35" filter="url(#fBlur)"/><rect x="-15" y="-21" width="30" height="42" rx="3" fill="#f6efe0" stroke="#bfb08a" stroke-width=".8"/><text x="-11" y="-9" font-family="Georgia,serif" font-weight="700" font-size="12" fill="#c2262b">K</text><text x="-8.5" y="3" font-family="Arial,sans-serif" font-size="9" fill="#c2262b">♥</text><text x="-7" y="17" font-family="Arial,sans-serif" font-size="20" fill="#c2262b">♥</text></g>
-  <g transform="translate(338 296) scale(1 .72) rotate(4)"><rect x="-14" y="-18" width="30" height="42" rx="3" fill="#000" opacity=".35" filter="url(#fBlur)"/><rect x="-15" y="-21" width="30" height="42" rx="3" fill="#f6efe0" stroke="#bfb08a" stroke-width=".8"/><text x="-11" y="-9" font-family="Georgia,serif" font-weight="700" font-size="12" fill="#c2262b">A</text><text x="-8.5" y="3" font-family="Arial,sans-serif" font-size="9" fill="#c2262b">♥</text><text x="-7" y="17" font-family="Arial,sans-serif" font-size="20" fill="#c2262b">♥</text></g>
-
-  <!-- botão do dealer -->
-  <ellipse cx="372" cy="327" rx="13" ry="5.2" fill="#8d8d88"/>
-  <ellipse cx="372" cy="325.5" rx="13" ry="5.2" fill="#f4f1e8" stroke="#bdb8a8" stroke-width=".8"/>
-  <text x="372" y="327.4" font-family="Arial,sans-serif" font-weight="700" font-size="7" fill="#2a2a2a" text-anchor="middle">D</text>
-
-  <!-- fichas -->
-  <ellipse cx="142" cy="336.4" rx="16" ry="6.2" fill="#7a1318"/><rect x="126" y="332" width="32" height="4.4" fill="#7a1318"/><line x1="127" y1="334.4" x2="157" y2="334.4" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="142" cy="332" rx="16" ry="6.2" fill="#c2262b"/><ellipse cx="142" cy="332" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="142" cy="332" rx="16" ry="6.2" fill="#7a1318"/><rect x="126" y="327.6" width="32" height="4.4" fill="#7a1318"/><line x1="127" y1="330" x2="157" y2="330" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="142" cy="327.6" rx="16" ry="6.2" fill="#c2262b"/><ellipse cx="142" cy="327.6" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="142" cy="327.59999999999997" rx="16" ry="6.2" fill="#a89a76"/><rect x="126" y="323.2" width="32" height="4.4" fill="#a89a76"/><line x1="127" y1="325.59999999999997" x2="157" y2="325.59999999999997" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="142" cy="323.2" rx="16" ry="6.2" fill="#efe3c2"/><ellipse cx="142" cy="323.2" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="142" cy="323.2" rx="16" ry="6.2" fill="#7a1318"/><rect x="126" y="318.8" width="32" height="4.4" fill="#7a1318"/><line x1="127" y1="321.2" x2="157" y2="321.2" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="142" cy="318.8" rx="16" ry="6.2" fill="#c2262b"/><ellipse cx="142" cy="318.8" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="142" cy="318.79999999999995" rx="16" ry="6.2" fill="#7a1318"/><rect x="126" y="314.4" width="32" height="4.4" fill="#7a1318"/><line x1="127" y1="316.79999999999995" x2="157" y2="316.79999999999995" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="142" cy="314.4" rx="16" ry="6.2" fill="#c2262b"/><ellipse cx="142" cy="314.4" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="142" cy="314.4" rx="16" ry="6.2" fill="#a89a76"/><rect x="126" y="310" width="32" height="4.4" fill="#a89a76"/><line x1="127" y1="312.4" x2="157" y2="312.4" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="142" cy="310" rx="16" ry="6.2" fill="#efe3c2"/><ellipse cx="142" cy="310" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="142" cy="310" rx="16" ry="6.2" fill="#7a1318"/><rect x="126" y="305.6" width="32" height="4.4" fill="#7a1318"/><line x1="127" y1="308" x2="157" y2="308" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="142" cy="305.6" rx="16" ry="6.2" fill="#c2262b"/><ellipse cx="142" cy="305.6" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/>
-  <ellipse cx="112" cy="346.4" rx="16" ry="6.2" fill="#0c0c0e"/><rect x="96" y="342" width="32" height="4.4" fill="#0c0c0e"/><line x1="97" y1="344.4" x2="127" y2="344.4" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="112" cy="342" rx="16" ry="6.2" fill="#26262a"/><ellipse cx="112" cy="342" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="112" cy="342" rx="16" ry="6.2" fill="#0c0c0e"/><rect x="96" y="337.6" width="32" height="4.4" fill="#0c0c0e"/><line x1="97" y1="340" x2="127" y2="340" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="112" cy="337.6" rx="16" ry="6.2" fill="#26262a"/><ellipse cx="112" cy="337.6" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="112" cy="337.59999999999997" rx="16" ry="6.2" fill="#8a6420"/><rect x="96" y="333.2" width="32" height="4.4" fill="#8a6420"/><line x1="97" y1="335.59999999999997" x2="127" y2="335.59999999999997" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="112" cy="333.2" rx="16" ry="6.2" fill="#e0b053"/><ellipse cx="112" cy="333.2" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="112" cy="333.2" rx="16" ry="6.2" fill="#0c0c0e"/><rect x="96" y="328.8" width="32" height="4.4" fill="#0c0c0e"/><line x1="97" y1="331.2" x2="127" y2="331.2" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="112" cy="328.8" rx="16" ry="6.2" fill="#26262a"/><ellipse cx="112" cy="328.8" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/>
-  <ellipse cx="404" cy="338.4" rx="16" ry="6.2" fill="#8a6420"/><rect x="388" y="334" width="32" height="4.4" fill="#8a6420"/><line x1="389" y1="336.4" x2="419" y2="336.4" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="404" cy="334" rx="16" ry="6.2" fill="#e0b053"/><ellipse cx="404" cy="334" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="404" cy="334" rx="16" ry="6.2" fill="#0c0c0e"/><rect x="388" y="329.6" width="32" height="4.4" fill="#0c0c0e"/><line x1="389" y1="332" x2="419" y2="332" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="404" cy="329.6" rx="16" ry="6.2" fill="#26262a"/><ellipse cx="404" cy="329.6" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="404" cy="329.59999999999997" rx="16" ry="6.2" fill="#8a6420"/><rect x="388" y="325.2" width="32" height="4.4" fill="#8a6420"/><line x1="389" y1="327.59999999999997" x2="419" y2="327.59999999999997" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="404" cy="325.2" rx="16" ry="6.2" fill="#e0b053"/><ellipse cx="404" cy="325.2" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="404" cy="325.2" rx="16" ry="6.2" fill="#8a6420"/><rect x="388" y="320.8" width="32" height="4.4" fill="#8a6420"/><line x1="389" y1="323.2" x2="419" y2="323.2" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="404" cy="320.8" rx="16" ry="6.2" fill="#e0b053"/><ellipse cx="404" cy="320.8" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="404" cy="320.79999999999995" rx="16" ry="6.2" fill="#0c0c0e"/><rect x="388" y="316.4" width="32" height="4.4" fill="#0c0c0e"/><line x1="389" y1="318.79999999999995" x2="419" y2="318.79999999999995" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="404" cy="316.4" rx="16" ry="6.2" fill="#26262a"/><ellipse cx="404" cy="316.4" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="404" cy="316.4" rx="16" ry="6.2" fill="#8a6420"/><rect x="388" y="312" width="32" height="4.4" fill="#8a6420"/><line x1="389" y1="314.4" x2="419" y2="314.4" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="404" cy="312" rx="16" ry="6.2" fill="#e0b053"/><ellipse cx="404" cy="312" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/>
-  <ellipse cx="436" cy="326.4" rx="16" ry="6.2" fill="#a89a76"/><rect x="420" y="322" width="32" height="4.4" fill="#a89a76"/><line x1="421" y1="324.4" x2="451" y2="324.4" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="436" cy="322" rx="16" ry="6.2" fill="#efe3c2"/><ellipse cx="436" cy="322" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="436" cy="322" rx="16" ry="6.2" fill="#7a1318"/><rect x="420" y="317.6" width="32" height="4.4" fill="#7a1318"/><line x1="421" y1="320" x2="451" y2="320" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="436" cy="317.6" rx="16" ry="6.2" fill="#c2262b"/><ellipse cx="436" cy="317.6" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/><ellipse cx="436" cy="317.59999999999997" rx="16" ry="6.2" fill="#a89a76"/><rect x="420" y="313.2" width="32" height="4.4" fill="#a89a76"/><line x1="421" y1="315.59999999999997" x2="451" y2="315.59999999999997" stroke="#f3e6c4" stroke-width="2.2" stroke-dasharray="3 3.4" opacity=".85"/><ellipse cx="436" cy="313.2" rx="16" ry="6.2" fill="#efe3c2"/><ellipse cx="436" cy="313.2" rx="11" ry="4.2" fill="none" stroke="#f3e6c4" stroke-width="1" stroke-dasharray="2.4 2.4" opacity=".8"/>
-</svg>
+    <img src="img/intro.webp" alt="" class="splash-art" />
   </div>
 </div>
+
+<span class="banner banner-l" aria-hidden="true">♠</span>
+<span class="banner banner-r" aria-hidden="true">♠</span>
 
 <div class="topbar">
   <div class="topbar-inner">
@@ -124,7 +55,7 @@
       <img src="icons/emblem.png" alt="" class="brand-icon" />
       <div>
         <strong>Quinta Flush</strong>
-        <span>A Pair Of Balls Beats Everything!</span>
+        <span>Um par de bolas vence tudo!</span>
       </div>
     </div>
     <button id="btn-lancar" class="btn btn-primary">
@@ -132,6 +63,10 @@
     </button>
   </div>
 </div>
+
+<section class="hero" aria-hidden="true">
+  <img src="img/intro.webp" alt="" />
+</section>
 
 <main class="layout">
 
@@ -299,6 +234,6 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script type="module" src="app.js?v=8"></script>
+<script type="module" src="app.js?v=9"></script>
 </body>
 </html>
