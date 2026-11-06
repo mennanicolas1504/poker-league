@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=10" />
+<link rel="stylesheet" href="style.css?v=12" />
 
 <!-- Ícone do app (usado ao adicionar à tela de início no celular) -->
 <link rel="manifest" href="manifest.json" />
@@ -22,10 +22,32 @@
 
 <!-- Introzinha ao abrir o site -->
 <div id="splash" class="splash" aria-hidden="true">
-  <div class="splash-frame">
-    <img src="img/quinta-flush.png" alt="" class="splash-art" />
-    <p class="splash-sub">Quinta sim, quinta não</p>
-    <div class="splash-suits"><span>♠</span><span>♥</span><span>♦</span><span>♣</span></div>
+  <div class="splash-scene">
+    <div class="splash-logo">
+      <svg class="splash-crown" viewBox="0 0 64 42" aria-hidden="true">
+        <defs>
+          <linearGradient id="crownGold" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#fff0b8"/>
+            <stop offset="0.55" stop-color="#e0b053"/>
+            <stop offset="1" stop-color="#b9822a"/>
+          </linearGradient>
+        </defs>
+        <path d="M5 36 L8 11 L21 23 L32 5 L43 23 L56 11 L59 36 Z" fill="url(#crownGold)" stroke="#5a2a05" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="5" y="34" width="54" height="6" rx="2" fill="url(#crownGold)" stroke="#5a2a05" stroke-width="2.5"/>
+        <circle cx="32" cy="29" r="3.2" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
+        <circle cx="8" cy="10" r="2.6" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
+        <circle cx="56" cy="10" r="2.6" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
+        <circle cx="32" cy="5" r="2.6" fill="#c9302f" stroke="#5a2a05" stroke-width="1.5"/>
+      </svg>
+      <h1 class="splash-title">QUINTA FLUSH</h1>
+      <p class="splash-sub">A Pair Of Balls Beats Everything!</p>
+    </div>
+    <img src="img/crupie.svg" alt="" class="splash-woman" />
+    <div class="splash-table">
+      <span class="splash-chip chip-a"></span>
+      <span class="splash-chip chip-b"></span>
+      <span class="splash-chip chip-c"></span>
+    </div>
   </div>
 </div>
 
@@ -35,7 +57,7 @@
       <img src="icons/emblem.png" alt="" class="brand-icon" />
       <div>
         <strong>Quinta Flush</strong>
-        <span>Poker League</span>
+        <span>A Pair Of Balls Beats Everything!</span>
       </div>
     </div>
     <button id="btn-lancar" class="btn btn-primary">
@@ -96,7 +118,6 @@
       <span id="premio-sub" class="premio-sub muted small">carregando…</span>
     </div>
 
-    <img src="img/bluffs-club.png" alt="" class="poster" />
   </aside>
 
   <!-- Porta-copos da mesa, só decoração -->
@@ -211,6 +232,6 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script type="module" src="app.js?v=6"></script>
+<script type="module" src="app.js?v=7"></script>
 </body>
 </html>

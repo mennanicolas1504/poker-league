@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-26 0 356 380" width="356" height="380">
+  <defs>
+    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8dd90"/>
+      <stop offset="0.55" stop-color="#e0aa48"/>
+      <stop offset="1" stop-color="#a86f20"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f9d9bb"/>
+      <stop offset="1" stop-color="#e9b48b"/>
+    </linearGradient>
+    <linearGradient id="blazer" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a1a1c"/>
+      <stop offset="1" stop-color="#0e0708"/>
+    </linearGradient>
+  </defs>
+
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <!-- figura principal, deslocada pra dar espaço pras cartas à esquerda -->
+    <g transform="translate(36 0)">
+      <!-- cabelo de trás -->
+      <path d="M150 40 C85 38 62 95 66 160 C68 215 52 262 40 318 L70 332 C92 314 100 292 106 262 L194 262 C200 292 208 314 230 332 L260 318 C248 262 232 215 234 160 C238 95 215 38 150 40 Z"
+            fill="url(#hair)" stroke="#1a0a0a" stroke-width="3"/>
+
+      <!-- pescoço -->
+      <path d="M126 210 L126 264 C126 280 174 280 174 264 L174 210 Z" fill="url(#skin)" stroke="#1a0a0a" stroke-width="3"/>
+      <path d="M126 236 C140 252 160 252 174 236 L174 250 C160 266 140 266 126 250 Z" fill="rgba(140,70,40,.28)"/>
+
+      <!-- blazer -->
+      <path d="M26 380 L36 322 C42 290 80 270 112 258 L188 258 C220 270 258 290 264 322 L274 380 Z"
+            fill="url(#blazer)" stroke="#1a0a0a" stroke-width="3"/>
+      <!-- blusa vermelha no decote em V -->
+      <path d="M112 258 L150 330 L188 258 Z" fill="#b3262b" stroke="#1a0a0a" stroke-width="3"/>
+      <!-- lapelas com friso creme -->
+      <path d="M112 258 L134 336 M188 258 L166 336" fill="none" stroke="#f3e6c4" stroke-width="2" opacity=".55"/>
+      <!-- broche dourado -->
+      <circle cx="214" cy="304" r="7" fill="#e0b053" stroke="#1a0a0a" stroke-width="2"/>
+      <circle cx="214" cy="304" r="2.5" fill="#b3262b"/>
+
+      <!-- rosto -->
+      <path d="M100 140 C100 100 124 84 150 84 C176 84 200 100 200 140 C200 178 180 214 150 220 C120 214 100 178 100 140 Z"
+            fill="url(#skin)" stroke="#1a0a0a" stroke-width="3"/>
+      <!-- bochechas -->
+      <ellipse cx="116" cy="186" rx="9" ry="5" fill="#e9857a" opacity=".35"/>
+      <ellipse cx="184" cy="186" rx="9" ry="5" fill="#e9857a" opacity=".35"/>
+
+      <!-- óculos escuros -->
+      <path d="M146 156 Q150 150 154 156" fill="none" stroke="#120a0a" stroke-width="4"/>
+      <path d="M106 152 L96 147 M194 152 L204 147" fill="none" stroke="#120a0a" stroke-width="4"/>
+      <rect x="106" y="146" width="40" height="30" rx="11" fill="#120a0a" stroke="#120a0a" stroke-width="2"/>
+      <rect x="154" y="146" width="40" height="30" rx="11" fill="#120a0a" stroke="#120a0a" stroke-width="2"/>
+      <path d="M113 153 L125 153 M113 158 L120 158 M161 153 L173 153 M161 158 L168 158" stroke="#f3e6c4" stroke-width="2.2" opacity=".75"/>
+
+      <!-- nariz e boca -->
+      <path d="M150 170 Q145 186 153 188" fill="none" stroke="rgba(150,80,50,.6)" stroke-width="2"/>
+      <path d="M133 199 Q142 193 150 197 Q158 193 167 199 Q158 212 150 212 Q142 212 133 199 Z"
+            fill="#c2262b" stroke="#5a0f12" stroke-width="1.5"/>
+      <path d="M137 200 Q150 205 163 200" fill="none" stroke="#fff" stroke-width="1.6" opacity=".35"/>
+
+      <!-- franja de lado e mechas da frente -->
+      <path d="M96 152 C90 96 118 62 158 62 C198 62 216 100 204 152 C196 128 182 112 164 106 C140 128 116 138 96 152 Z"
+            fill="url(#hair)" stroke="#1a0a0a" stroke-width="3"/>
+      <path d="M96 152 C82 198 78 252 60 304 C82 300 98 272 106 238 C108 202 104 172 96 152 Z"
+            fill="url(#hair)" stroke="#1a0a0a" stroke-width="3"/>
+      <path d="M204 152 C218 198 222 252 240 304 C218 300 202 272 194 238 C192 202 196 172 204 152 Z"
+            fill="url(#hair)" stroke="#1a0a0a" stroke-width="3"/>
+      <!-- brilho no cabelo -->
+      <path d="M126 76 C150 66 176 70 192 88" fill="none" stroke="#fff6cf" stroke-width="3" opacity=".55"/>
+    </g>
+
+    <!-- leque de cartas: um flush de copas -->
+    <g transform="translate(58 330)">
+      <g transform="rotate(-42)">
+        <rect x="-24" y="-78" width="48" height="72" rx="6" fill="#f6efe0" stroke="#1a0a0a" stroke-width="2.5"/>
+        <text x="-18" y="-58" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#c2262b">J</text>
+        <text x="-19" y="-42" font-family="Arial, sans-serif" font-size="14" fill="#c2262b">♥</text>
+      </g>
+      <g transform="rotate(-21)">
+        <rect x="-24" y="-78" width="48" height="72" rx="6" fill="#f6efe0" stroke="#1a0a0a" stroke-width="2.5"/>
+        <text x="-18" y="-58" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#c2262b">Q</text>
+        <text x="-19" y="-42" font-family="Arial, sans-serif" font-size="14" fill="#c2262b">♥</text>
+      </g>
+      <g transform="rotate(0)">
+        <rect x="-24" y="-78" width="48" height="72" rx="6" fill="#f6efe0" stroke="#1a0a0a" stroke-width="2.5"/>
+        <text x="-18" y="-58" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#c2262b">K</text>
+        <text x="-19" y="-42" font-family="Arial, sans-serif" font-size="14" fill="#c2262b">♥</text>
+      </g>
+      <g transform="rotate(21)">
+        <rect x="-24" y="-78" width="48" height="72" rx="6" fill="#f6efe0" stroke="#1a0a0a" stroke-width="2.5"/>
+        <text x="-18" y="-58" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#c2262b">A</text>
+        <text x="-19" y="-42" font-family="Arial, sans-serif" font-size="14" fill="#c2262b">♥</text>
+        <text x="-9" y="-22" font-family="Arial, sans-serif" font-size="26" fill="#c2262b">♥</text>
+      </g>
+      <!-- mão -->
+      <path d="M-26 -8 C-30 -26 20 -30 28 -8 C34 14 22 30 0 30 C-22 30 -30 12 -26 -8 Z"
+            fill="url(#skin)" stroke="#1a0a0a" stroke-width="3"/>
+      <path d="M-14 -14 C-14 -4 -14 4 -12 12 M0 -16 C0 -6 0 4 2 14 M14 -14 C14 -4 14 4 14 12"
+            fill="none" stroke="#a56a45" stroke-width="2"/>
+      <path d="M-26 6 C-38 6 -40 22 -28 24" fill="url(#skin)" stroke="#1a0a0a" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

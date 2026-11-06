@@ -27,13 +27,10 @@
 html, body {
   margin: 0;
   padding: 0;
-  /* Mesa de poker: feltro verde escuro com "spot light" no topo e uma
-     trama diagonal bem sutil imitando o tecido, mais escuro nas bordas. */
+  /* Fundo vermelho do cartaz Bluffs Club, com raios cremes saindo do topo */
   background:
-    radial-gradient(ellipse 1200px 700px at 50% -120px, rgba(255, 255, 255, 0.05), transparent 65%),
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 26px),
-    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 26px),
-    radial-gradient(circle at 50% 25%, var(--felt-1) 0%, var(--felt-2) 45%, var(--felt-3) 100%);
+    repeating-conic-gradient(from 0deg at 50% 16%, rgba(243, 230, 196, 0.05) 0deg 5deg, transparent 5deg 12deg),
+    radial-gradient(ellipse 1400px 900px at 50% 0%, #b3262b 0%, #7e1a1e 38%, #3a0d10 72%, #170709 100%);
   background-attachment: fixed;
   color: var(--text);
   min-height: 100%;
@@ -76,8 +73,17 @@ h1, h2, h3 {
   object-fit: cover;
   box-shadow: 0 0 0 1px var(--panel-border);
 }
-.brand strong { display: block; font-family: "Alfa Slab One", "Sora", serif; font-weight: 400; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--cream); }
-.brand span { display: block; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.12em; }
+.brand > div { min-width: 0; }
+.brand strong {
+  display: block; font-family: "Alfa Slab One", "Sora", serif; font-weight: 400; font-size: 1.15rem; letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fff0b8, #e0b053 55%, #b9822a);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.7));
+}
+.brand span {
+  display: block; font-size: 0.62rem; color: #e9d9ae; text-transform: uppercase; letter-spacing: 0.08em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 56vw;
+}
 
 /* Buttons */
 .btn {
@@ -94,7 +100,12 @@ h1, h2, h3 {
   gap: 6px;
 }
 .btn:active { transform: scale(0.97); }
-.btn-primary { background: linear-gradient(135deg, #c92f2f, var(--brand-deep)); color: #fbf0d4; box-shadow: 0 0 0 1px rgba(243, 230, 196, 0.2) inset; }
+.btn-primary {
+  background: linear-gradient(180deg, #ffe58f 0%, #f0b73c 48%, #c98a17 100%);
+  color: #3b2305; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -3px 0 rgba(120, 70, 0, 0.35), 0 4px 0 #7a4a08, 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+.btn-primary:active { transform: translateY(3px); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), inset 0 -3px 0 rgba(120, 70, 0, 0.35), 0 1px 0 #7a4a08, 0 3px 8px rgba(0, 0, 0, 0.4); }
 .btn-primary:hover { filter: brightness(1.06); }
 .btn-secondary { background: #2b2324; color: var(--text); }
 .btn-secondary:hover { background: #342b2c; }
@@ -128,11 +139,17 @@ h1, h2, h3 {
   position: absolute;
   inset: 10px;
   border-radius: 140px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.015) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 0 1px, transparent 1px 26px),
+    radial-gradient(circle at 50% 25%, var(--felt-1) 0%, var(--felt-2) 55%, var(--felt-3) 100%);
   box-shadow:
     inset 0 0 0 6px #000,
     inset 0 0 0 26px #1a1a1c,
     inset 0 2px 4px 26px rgba(255, 255, 255, 0.04),
     inset 0 0 0 32px #000,
+    0 0 0 3px rgba(224, 176, 83, 0.4),
+    0 0 52px 4px rgba(201, 48, 47, 0.55),
     0 18px 46px rgba(0, 0, 0, 0.55);
   pointer-events: none;
   z-index: -1;
@@ -159,8 +176,9 @@ h1, h2, h3 {
 }
 
 .panel {
-  background: linear-gradient(180deg, var(--panel), var(--bg-alt));
-  border: 1px solid var(--panel-border);
+  background: linear-gradient(180deg, rgba(31, 21, 22, 0.97), rgba(19, 12, 13, 0.97));
+  border: 1px solid rgba(243, 230, 196, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
   border-radius: var(--radius);
   padding: 20px;
 }
@@ -246,9 +264,9 @@ table.ranking tbody tr.jogador-row { cursor: pointer; }
   display: grid; place-items: center; font-weight: 800; font-size: 0.8rem;
   background: #2e2627; color: var(--text);
 }
-.rank-1 .avatar { background: var(--gold); color: #23180a; }
-.rank-2 .avatar { background: var(--silver); color: #1c2029; }
-.rank-3 .avatar { background: var(--bronze); color: #2a1608; }
+.rank-1 .avatar { background: var(--gold); color: #23180a; box-shadow: 0 0 0 2px #fff3c4, 0 0 14px rgba(224, 176, 83, 0.75); }
+.rank-2 .avatar { background: var(--silver); color: #1c2029; box-shadow: 0 0 0 2px #fff, 0 0 12px rgba(199, 205, 214, 0.55); }
+.rank-3 .avatar { background: var(--bronze); color: #2a1608; box-shadow: 0 0 0 2px #ffd9b0, 0 0 12px rgba(217, 138, 77, 0.55); }
 
 .empty-hint { color: var(--text-muted); font-size: 0.85rem; padding: 8px 4px; }
 
@@ -269,7 +287,7 @@ table.ranking tbody tr.jogador-row { cursor: pointer; }
 }
 .premio-head { display: flex; align-items: center; justify-content: space-between; }
 .premio-tag { font-size: 0.76rem; font-weight: 700; color: var(--gold); opacity: 0.85; }
-.premio-valor { font-size: 1.3rem; font-weight: 800; }
+.premio-valor { font-size: 1.3rem; font-weight: 800; color: #ffe9a8; text-shadow: 0 0 16px rgba(224, 176, 83, 0.5); }
 .premio-sub { font-size: 0.74rem; }
 
 .footer { text-align: center; color: var(--text-muted); font-size: 0.78rem; padding: 10px 20px 40px; }
@@ -355,50 +373,70 @@ table.ranking tbody tr.jogador-row { cursor: pointer; }
 .form-erro { color: var(--red); font-size: 0.82rem; margin-top: 10px; }
 .hidden { display: none !important; }
 
-/* Introdução: cartão estilo cartaz com a arte da Quinta Flush */
+/* Introdução: crupiê atrás da mesa, no clima de jogo */
 .splash {
   position: fixed; inset: 0; z-index: 500;
-  display: flex; align-items: center; justify-content: center; padding: 20px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
   background:
-    radial-gradient(circle at 50% 38%, rgba(179, 38, 43, 0.28), transparent 58%),
-    radial-gradient(circle at 50% 40%, #1a0c0d 0%, #0d0606 60%, #050303 100%);
+    repeating-conic-gradient(from 0deg at 50% 44%, rgba(243, 230, 196, 0.07) 0deg 5deg, transparent 5deg 12deg),
+    radial-gradient(circle at 50% 44%, #c9302f 0%, #8f1d1d 30%, #3a0d0f 62%, #120607 100%);
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 .splash.splash-hide { opacity: 0; visibility: hidden; pointer-events: none; }
 
-.splash-frame {
-  width: min(380px, 88vw);
-  padding: 14px 14px 18px;
-  border-radius: 24px;
-  text-align: center;
-  background: #f6efe0;
-  border: 3px solid var(--brand-deep);
-  box-shadow: 0 0 0 2px #f6efe0 inset, 0 30px 80px rgba(0, 0, 0, 0.65), 0 0 80px -10px rgba(179, 38, 43, 0.55);
-  animation: splash-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+.splash-scene {
+  position: relative; width: min(520px, 100vw); height: min(100vh, 780px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0;
 }
-.splash-art {
-  display: block; width: 100%; aspect-ratio: 1 / 1; max-height: 54vh; object-fit: cover; object-position: 55% 50%;
-  border-radius: 14px;
+.splash-logo { text-align: center; z-index: 3; animation: splash-drop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.splash-crown { width: clamp(46px, 11vw, 64px); height: auto; display: block; margin: 0 auto -4px; filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5)); }
+.splash-title {
+  margin: 0; white-space: nowrap;
+  font-family: "Alfa Slab One", "Sora", serif; font-weight: 400; font-size: clamp(1.9rem, 8.6vw, 3.1rem); letter-spacing: 0.02em;
+  background: linear-gradient(180deg, #fff0b8, #e0b053 55%, #b9822a);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 3px 0 #6b2a05) drop-shadow(0 10px 14px rgba(0, 0, 0, 0.55));
 }
 .splash-sub {
-  font-family: "Alfa Slab One", "Sora", serif; font-size: 0.95rem; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--brand-deep); margin: 14px 0 0;
-  animation: splash-fade-up 0.6s 0.25s both;
+  display: inline-block; margin: 10px 0 0; padding: 6px 14px; border-radius: 999px;
+  font-family: "Sora", sans-serif; font-weight: 800; font-size: clamp(0.56rem, 2.4vw, 0.72rem); letter-spacing: 0.05em; text-transform: uppercase;
+  color: #5a0f12; background: linear-gradient(180deg, #f8edcd, #dcc78f);
+  box-shadow: 0 3px 0 #7a171c, 0 8px 16px rgba(0, 0, 0, 0.4);
 }
-.splash-suits {
-  display: flex; justify-content: center; gap: 12px; font-size: 1.05rem; color: var(--brand); margin-top: 8px;
-  animation: splash-fade-up 0.6s 0.35s both;
+.splash-woman {
+  width: min(290px, 62vw); max-height: 44vh; object-fit: contain; z-index: 1; margin-top: 10px;
+  filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.55));
+  animation: splash-rise 0.7s 0.1s cubic-bezier(0.34, 1.2, 0.64, 1) both;
 }
-@keyframes splash-pop {
-  from { opacity: 0; transform: scale(0.88) translateY(10px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+.splash-table {
+  position: relative; z-index: 2; margin-top: -64px;
+  width: min(500px, 118vw); height: clamp(110px, 20vh, 170px); border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 30%, var(--felt-1), var(--felt-2) 60%, var(--felt-3));
+  border: 10px solid #0b0b0c;
+  box-shadow: 0 0 0 3px rgba(224, 176, 83, 0.55), 0 0 46px 6px rgba(201, 48, 47, 0.7), inset 0 12px 30px rgba(0, 0, 0, 0.55);
+  animation: splash-rise-table 0.7s 0.2s ease-out both;
 }
-@keyframes splash-fade-up {
-  from { opacity: 0; transform: translateY(8px); }
+.splash-chip {
+  position: absolute; width: 26px; height: 26px; border-radius: 50%;
+  background: #b3262b; border: 3px dashed #f3e6c4; box-shadow: 0 3px 0 #4a0f12, 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+.chip-a { left: 22%; top: 46%; }
+.chip-b { left: 28%; top: 54%; background: #f3e6c4; border-color: #b3262b; }
+.chip-c { right: 24%; top: 50%; background: #1a1a1c; border-color: #e0b053; }
+@keyframes splash-drop {
+  from { opacity: 0; transform: translateY(-24px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes splash-rise {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes splash-rise-table {
+  from { opacity: 0; transform: translateY(60px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .splash-frame, .splash-sub, .splash-suits { animation: none; }
+  .splash-logo, .splash-woman, .splash-table { animation: none; }
 }
 
 .toast {
@@ -433,9 +471,12 @@ table.ranking tbody tr.jogador-row { cursor: pointer; }
 .jogador-hist-pos { font-weight: 700; width: 30px; }
 .jogador-hist-pts { color: var(--gold); font-variant-numeric: tabular-nums; }
 
-/* Cartaz retrô (Bluffs Club) no painel lateral */
-.poster {
-  display: block; width: 100%; max-width: 220px; margin: 20px auto 0;
-  border-radius: 10px; border: 1px solid rgba(243, 230, 196, 0.15);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5); transform: rotate(-1.5deg);
+/* Ajustes de celular: evita a página alargar e deixa a frase do subtítulo quebrar linha */
+.layout > * { min-width: 0; }
+.topbar-inner .btn { flex-shrink: 0; white-space: nowrap; }
+.brand { min-width: 0; flex: 1 1 auto; }
+@media (max-width: 600px) {
+  .topbar-inner { padding: 12px 14px; gap: 10px; }
+  .topbar-inner .btn { padding: 9px 12px; font-size: 0.8rem; }
+  .brand span { white-space: normal; max-width: none; font-size: 0.56rem; letter-spacing: 0.04em; line-height: 1.2; }
 }
