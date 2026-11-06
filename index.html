@@ -3,36 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Poker League Championship</title>
+<title>Quinta Flush</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=8" />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=10" />
 
 <!-- Ícone do app (usado ao adicionar à tela de início no celular) -->
 <link rel="manifest" href="manifest.json" />
 <link rel="icon" href="icons/favicon-32.png" type="image/png" />
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
-<meta name="theme-color" content="#0b0d10" />
+<meta name="theme-color" content="#120a0a" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="Poker League" />
+<meta name="apple-mobile-web-app-title" content="Quinta Flush" />
 </head>
 <body>
 
 <!-- Introzinha ao abrir o site -->
 <div id="splash" class="splash" aria-hidden="true">
   <div class="splash-frame">
-    <div class="splash-frame-head">
-      <span class="splash-eyebrow">Poker League</span>
-      <img src="icons/icon-512.png" alt="" class="splash-avatar" />
-    </div>
-    <div class="splash-cards">
-      <span class="splash-card splash-card-back">A<em>♠</em></span>
-      <span class="splash-card splash-card-front">A<em>♥</em></span>
-    </div>
-    <h1 class="splash-title">POKER<span>ZENHA</span></h1>
-    <p class="splash-sub">Championship</p>
+    <img src="img/quinta-flush.png" alt="" class="splash-art" />
+    <p class="splash-sub">Quinta sim, quinta não</p>
     <div class="splash-suits"><span>♠</span><span>♥</span><span>♦</span><span>♣</span></div>
   </div>
 </div>
@@ -40,10 +32,10 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <img src="icons/icon-192.png" alt="" class="brand-icon" />
+      <img src="icons/emblem.png" alt="" class="brand-icon" />
       <div>
-        <strong>Poker League</strong>
-        <span>Championship</span>
+        <strong>Quinta Flush</strong>
+        <span>Poker League</span>
       </div>
     </div>
     <button id="btn-lancar" class="btn btn-primary">
@@ -103,6 +95,8 @@
       <span id="premio-valor" class="premio-valor">R$ 0,00</span>
       <span id="premio-sub" class="premio-sub muted small">carregando…</span>
     </div>
+
+    <img src="img/bluffs-club.png" alt="" class="poster" />
   </aside>
 
   <!-- Porta-copos da mesa, só decoração -->
@@ -217,6 +211,6 @@
 
 <div id="toast" class="toast hidden"></div>
 
-<script type="module" src="app.js?v=5"></script>
+<script type="module" src="app.js?v=6"></script>
 </body>
 </html>

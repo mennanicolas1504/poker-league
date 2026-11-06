@@ -1,4 +1,4 @@
-# Poker League Championship
+# Quinta Flush
 
 Site do campeonato de poker do grupo. Qualquer jogador pode lançar o resultado
 do dia direto pelo site — acabou a planilha manual. Os dados ficam guardados

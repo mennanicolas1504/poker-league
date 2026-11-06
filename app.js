@@ -868,7 +868,7 @@ $("#btn-nova-etapa").addEventListener("click", () => {
     setTimeout(() => splash.remove(), 550);
   };
   splash.addEventListener("click", esconderSplash);
-  setTimeout(esconderSplash, 1800);
+  setTimeout(esconderSplash, 2200);
 })();
 
 // ============================================================================
